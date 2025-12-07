@@ -188,7 +188,8 @@ export function waitForTransition(element: HTMLElement) {
 
 const audioManager = new AudioManager()
 export async function playPronunciation(entry: AlphabetEntry) {
-	const a = audioManager.play(`/audio/japanese/${entry.rom}.mp3`)
+	const base = window.location.host.endsWith('.github.io') ? '.' : ''
+	const a = audioManager.play(`${base}/audio/japanese/${entry.rom}.mp3`)
 	await a.end
 }
 
